@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  LEARN_UPON_API_URL: "https://angularlu.luptest.com/api/v1/users"
 };
 
 /*
