@@ -14,11 +14,11 @@ export class UsersService {
     this.http = http;
   }
 
-  getAllUsers(): Observable<User[]> {
+  public getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(url);
   }
 
-  createUser(user: User): Observable<User> {
+  public createUser(user: User): Observable<User> {
     return this.http.post<User>(url, user);
   }
 }
