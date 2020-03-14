@@ -13,7 +13,7 @@ export const createUser = createAction(
   props<{ user: User }>()
 );
 
-export const courseActionTypes = {
+export const usersActionTypes = {
   loadUsers,
   usersLoaded,
   createUser
