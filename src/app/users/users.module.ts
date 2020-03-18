@@ -6,14 +6,17 @@ import { CommonModule } from "@angular/common";
 import { UsersService } from "./users.service";
 import { userReducer } from "./store/users.reducer";
 import { UsersEffects } from "./store/users.effects";
+import { UsersRoutingModule } from "./users-routing.module";
+import { COMPONENTS } from "./users.collection";
 
 @NgModule({
-  declarations: [],
+  declarations: [...COMPONENTS],
   imports: [
     CommonModule,
     FormsModule,
     StoreModule.forFeature("users", userReducer),
-    EffectsModule.forFeature([UsersEffects])
+    EffectsModule.forFeature([UsersEffects]),
+    UsersRoutingModule
   ],
   providers: [UsersService]
 })
