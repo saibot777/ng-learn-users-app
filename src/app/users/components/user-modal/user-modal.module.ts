@@ -3,9 +3,10 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { UserModalComponent } from "./user-modal.component";
 import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
-  imports: [CommonModule, NgbModule],
+  imports: [CommonModule, FormsModule, NgbModule],
   declarations: [UserModalComponent],
   exports: [UserModalComponent],
   bootstrap: [UserModalComponent]

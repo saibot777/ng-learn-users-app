@@ -9,17 +9,20 @@ import { UsersEffects } from "./store/users.effects";
 import { UsersRoutingModule } from "./users-routing.module";
 import { COMPONENTS } from "./users.collection";
 import { UserModalModule } from "./components/user-modal/user-modal.module";
+import { HttpClientModule } from "@angular/common/http";
+import { UsersGuard } from "./users.guard";
 
 @NgModule({
   declarations: [...COMPONENTS],
   imports: [
     CommonModule,
+    HttpClientModule,
     FormsModule,
     StoreModule.forFeature("users", userReducer),
     EffectsModule.forFeature([UsersEffects]),
     UsersRoutingModule,
     UserModalModule
   ],
-  providers: [UsersService]
+  providers: [UsersService, UsersGuard]
 })
 export class UsersModule {}

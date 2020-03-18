@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <h4 class="modal-title" id="modal-basic-title">Create new user</h4>
     <button
       type="button"
       class="close"
@@ -11,44 +11,85 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form #MyForm="ngForm">
       <div class="form-group">
-        <label for="dateOfBirth">Date of birth</label>
-        <div class="input-group">
-          <input
-            id="dateOfBirth"
-            class="form-control"
-            placeholder="yyyy-mm-dd"
-            name="dp"
-            ngbDatepicker
-            #dp="ngbDatepicker"
-          />
-          <div class="input-group-append">
-            <button
-              class="btn btn-outline-secondary calendar"
-              (click)="dp.toggle()"
-              type="button"
-            ></button>
-          </div>
-        </div>
+        <label>First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="first_name"
+          placeholder="Your name"
+          required
+          [(ngModel)]="model.first_name"
+        />
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="last_name"
+          placeholder="Your last name"
+          required
+          [(ngModel)]="model.last_name"
+        />
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input
+          type="text"
+          class="form-control"
+          name="email"
+          placeholder="name@example.com"
+          required
+          [(ngModel)]="model.email"
+        />
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          placeholder="Your username"
+          required
+          [(ngModel)]="model.username"
+        />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          placeholder="Your password"
+          required
+          [(ngModel)]="model.password"
+        />
+      </div>
+      <div class="form-group">
+        <label>Language</label>
+        <input
+          type="text"
+          class="form-control"
+          name="language"
+          placeholder="Your name"
+          [(ngModel)]="model.language"
+        />
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="submitForm(MyForm)"
+        >
+          Save User
+        </button>
       </div>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="modal.close('Save click')"
-    >
-      Save
-    </button>
   </div>
 </ng-template>
 
 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">
-  Launch demo modal
+  Create User
 </button>
-
-<hr />
-
-<pre>{{ closeResult }}</pre>

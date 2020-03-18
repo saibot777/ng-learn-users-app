@@ -1,6 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
+import { NgForm } from "@angular/forms";
+import { User } from "../../user.model";
+import { UsersState } from "../../store/users.reducer";
+import * as UsersActions from "../../store/users.actions";
+import { Store } from "@ngrx/store";
 
 @Component({
   selector: "app-user-modal",
@@ -8,8 +13,24 @@ import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 })
 export class UserModalComponent {
   closeResult: string;
+  model: User;
 
-  constructor(private modalService: NgbModal) {}
+  @ViewChild("MyForm", { static: false }) MyForm: NgForm;
+
+  constructor(
+    private modalService: NgbModal,
+    private store: Store<UsersState>
+  ) {
+    this.model = {} as User;
+  }
+
+  submitForm(form: NgForm) {
+    if (form.valid) {
+      this.store.dispatch(UsersActions.createUser(form.value));
+    } else {
+      form.control.markAllAsTouched();
+    }
+  }
 
   open(content) {
     this.modalService
