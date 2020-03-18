@@ -1,11 +1,16 @@
-import { NgModule } from "@angular/core";
+import { NgModule, Type } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { UsersComponent } from "./components/users.component";
+import { BaseComponent } from "../libs/core/base.component";
+
+const ROUTE_COMPONENTS: { [componentName: string]: Type<BaseComponent> } = {
+  users: UsersComponent
+};
 
 const routes: Routes = [
   {
     path: "",
-    component: UsersComponent
+    component: ROUTE_COMPONENTS.users
   }
 ];
 
