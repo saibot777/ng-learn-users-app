@@ -8,6 +8,7 @@ import { userReducer } from "./store/users.reducer";
 import { UsersEffects } from "./store/users.effects";
 import { UsersRoutingModule } from "./users-routing.module";
 import { COMPONENTS } from "./users.collection";
+import { UserModalModule } from "./components/user-modal/user-modal.module";
 
 @NgModule({
   declarations: [...COMPONENTS],
@@ -16,7 +17,8 @@ import { COMPONENTS } from "./users.collection";
     FormsModule,
     StoreModule.forFeature("users", userReducer),
     EffectsModule.forFeature([UsersEffects]),
-    UsersRoutingModule
+    UsersRoutingModule,
+    UserModalModule
   ],
   providers: [UsersService]
 })
