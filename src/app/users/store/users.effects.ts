@@ -5,7 +5,9 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { UsersService } from "../users.service";
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class UsersEffects {
   public loadUsers$ = createEffect(() =>
     this.actions$.pipe(

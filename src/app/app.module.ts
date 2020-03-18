@@ -8,11 +8,14 @@ import { reducers, metaReducers } from "./store/reducers";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../environments/environment";
 import { COMPONENTS } from "./app.collections";
+import { EffectsModule } from "@ngrx/effects";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [...COMPONENTS],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
@@ -21,6 +24,7 @@ import { COMPONENTS } from "./app.collections";
         strictActionImmutability: true
       }
     }),
+    EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [],
