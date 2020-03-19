@@ -9,7 +9,8 @@ import { Store } from "@ngrx/store";
 
 @Component({
   selector: "app-user-modal",
-  templateUrl: "./user-modal.component.html"
+  templateUrl: "./user-modal.component.html",
+  styleUrls: ["./user-modal.component.scss"]
 })
 export class UserModalComponent {
   closeResult: string;
