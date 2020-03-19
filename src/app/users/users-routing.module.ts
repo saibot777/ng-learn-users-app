@@ -11,8 +11,8 @@ const ROUTE_COMPONENTS: { [componentName: string]: Type<BaseComponent> } = {
 const routes: Routes = [
   {
     path: "",
-    component: ROUTE_COMPONENTS.users
-    // canActivate: [UsersGuard]
+    component: ROUTE_COMPONENTS.users,
+    canActivate: [UsersGuard]
   }
 ];
 
